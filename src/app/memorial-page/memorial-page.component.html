@@ -1,0 +1,24 @@
+<app-omp-navigation section="primary"></app-omp-navigation>
+<app-omp-header
+  [person]="{
+    name: 'Ola Nordmann',
+    birth: '15. juni 1940',
+    passing: '9. mars 2021',
+    image: {
+      src:
+        'https://horten.vareminnesider.no/stream_file.php?filename=3831887.jpg&type=profile_photo_preview&sign=c9e74cb3560729d6a23f1c5faae738de',
+      alt: 'Ola Nordmann'
+    }
+  }"
+  [background]="{
+    image: {
+      src: 'https://horten.vareminnesider.no/assets/design/horten/img/default_cover_photo.png',
+      alt: ''
+    }
+  }"
+></app-omp-header>
+<app-omp-navigation section="secondary"></app-omp-navigation>
+<ng-content></ng-content>
+<footer>
+  <p>Footer</p>
+</footer>

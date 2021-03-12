@@ -1,0 +1,61 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas:
+    'm m m'
+    'm m m'
+    'm m m'
+    'n n n';
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 480px) {
+  :host-context(.menu-visibility-visible) {
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'n m m m';
+  }
+}
+
+:host .main-wrapper {
+  grid-area: m;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+:host-context(.color-scheme-light) {
+  color: var(--color-shade-700);
+  background-color: var(--color-shade-000);
+}
+
+:host-context(.color-scheme-dark) {
+  color: var(--color-shade-000);
+  background-color: var(--color-shade-900);
+}
+
+:host .hidden-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  z-index: 99999;
+  height: 2em;
+}
+
+:host .hidden-buttons button {
+  transform: translateY(-200%);
+  transition-timing-function: ease-in-out;
+  transition-duration: 250ms;
+  transition-property: transform;
+  transition-delay: 3000ms;
+}
+
+:host .hidden-buttons:hover button,
+:host .hidden-buttons:focus-within button {
+  transform: translateY(0%);
+  transition-delay: 0ms;
+}

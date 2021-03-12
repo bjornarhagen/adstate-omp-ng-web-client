@@ -1,0 +1,19 @@
+<header>
+  <div class="background">
+    <img [src]="background.image.src" [alt]="background.image.alt" />
+  </div>
+  <div class="content">
+    <div class="contentPhoto">
+      <img [src]="person.image.src" [alt]="person.image.alt" />
+    </div>
+    <div class="contentText">
+      <h1>{{ person.name }}</h1>
+      <dl>
+        <dt>Født:</dt>
+        <dd>{{ person.birth }}</dd>
+        <dt>Død:</dt>
+        <dd>{{ person.passing }}</dd>
+      </dl>
+    </div>
+  </div>
+</header>

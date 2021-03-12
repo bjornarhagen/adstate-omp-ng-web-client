@@ -1,0 +1,40 @@
+nav {
+  padding: 1em 2em;
+}
+
+:host-context(.color-scheme-light) nav {
+  background-color: var(--color-white);
+}
+
+:host-context(.color-scheme-dark) nav {
+  background-color: var(--color-shade-900);
+}
+
+nav a {
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+nav .inner-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .secondary {
+  /* width: 80ch; */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+nav .inner-wrapper.secondary {
+  justify-content: center;
+}

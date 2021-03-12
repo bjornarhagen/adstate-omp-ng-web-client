@@ -1,0 +1,18 @@
+<app-navigation></app-navigation>
+<main class="main-wrapper">
+  <header class="hidden-buttons">
+    <button *ngIf="menuVisibilityService.currentActive() === 'hidden'" (click)="changeMenuVisibility('visible')">
+      <streamline-icon [icon]="icons.menuOpen" stroke="currentColor"></streamline-icon>
+    </button>
+    <button *ngIf="menuVisibilityService.currentActive() === 'visible'" (click)="changeMenuVisibility('hidden')">
+      <streamline-icon [icon]="icons.menuClose" stroke="currentColor"></streamline-icon>
+    </button>
+    <button *ngIf="colorSchemeService.currentActive() === 'dark'" (click)="changeColorScheme('light')">
+      <streamline-icon [icon]="icons.themeLight" stroke="currentColor"></streamline-icon>
+    </button>
+    <button *ngIf="colorSchemeService.currentActive() === 'light'" (click)="changeColorScheme('dark')">
+      <streamline-icon [icon]="icons.themeDark" stroke="currentColor"></streamline-icon>
+    </button>
+  </header>
+  <router-outlet></router-outlet>
+</main>
