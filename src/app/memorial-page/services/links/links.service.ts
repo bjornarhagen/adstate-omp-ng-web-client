@@ -14,18 +14,12 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class LinksService {
-  apiURL = 'http://localhost:3001'
+  private apiURLBase = 'http://localhost:3001'
 
   constructor(private http: HttpClient) {}
 
-  get(): Observable<Link[]> {
-    return this.http.get<Link[]>(this.apiURL, httpOptions)
-  }
-
-  update(link: Link): Observable<any> {
-    const url = this.apiURL + '/' + link.id
-    const r = this.http.put(url, link, httpOptions)
-    console.log('SUBMIT', url, r)
-    return r
+  get(orderId: number): Observable<Link[]> {
+    const url = this.apiURLBase + '/' + orderId
+    return this.http.get<Link[]>(url, httpOptions)
   }
 }

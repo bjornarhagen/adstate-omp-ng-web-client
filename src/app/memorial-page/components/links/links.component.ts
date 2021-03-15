@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router'
 import { Link } from 'src/app/models/Link'
 import { LinksService } from '../../services/links/links.service'
+import { filter } from 'rxjs/operators'
 
 @Component({
   selector: 'app-links',
@@ -8,13 +10,17 @@ import { LinksService } from '../../services/links/links.service'
   styleUrls: ['./links.component.css'],
 })
 export class LinksComponent implements OnInit {
-  links: Link[]
+  private orderId: number
+  public links: Link[]
 
-  constructor(private linkService: LinksService) {}
-
-  ngOnInit(): void {
-    this.linkService.get().subscribe((links) => {
-      this.links = links
+  constructor(private router: Router, private route: ActivatedRoute, private linkService: LinksService) {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      this.orderId = Number(this.route.snapshot.paramMap.get('orderId'))
+      this.linkService.get(this.orderId).subscribe((links) => {
+        this.links = links
+      })
     })
   }
+
+  ngOnInit(): void {}
 }

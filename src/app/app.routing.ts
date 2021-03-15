@@ -8,7 +8,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'orders', component: OrdersComponent },
   {
-    path: 'memorial-page',
+    path: 'order/:orderId/memorial-page',
     loadChildren: './memorial-page/memorial-page.module#MemorialPageModule',
   },
 ]

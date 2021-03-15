@@ -10,7 +10,11 @@
           </p>
         </a>
       </li>
-      <li *ngIf="!links">No links</li>
+      <li *ngIf="!links || (!!links && links.length === 0)">
+        <a href="#">
+          <p>No links</p>
+        </a>
+      </li>
     </ul>
   </section>
 </app-memorial-page>

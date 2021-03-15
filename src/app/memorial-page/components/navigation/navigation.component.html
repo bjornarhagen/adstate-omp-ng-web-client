@@ -5,15 +5,15 @@
     </div>
     <div>
       <button>Kontakt administrator</button>
-      <button>Meny ⬇️</button>
+      <button>Meny ▾</button>
     </div>
   </div>
   <div *ngIf="section === 'secondary'" class="inner-wrapper secondary">
-    <a href="#">Hjem</a>
-    <a href="#">Bestill blomster</a>
-    <a href="#">Om begravelsen</a>
-    <a href="#">Dødsannonse </a>
-    <a href="#">Galleri</a>
-    <a href="#">Links</a>
+    <a routerLink="/order/1/memorial-page/home" routerLinkActive="active">Home</a>
+    <a routerLink="/order/1/memorial-page/order-flowers" routerLinkActive="active">Order flowers</a>
+    <a routerLink="/order/1/memorial-page/about-the-funeral" routerLinkActive="active">About the funeral</a>
+    <a routerLink="/order/1/memorial-page/death-notice" routerLinkActive="active">Death notice</a>
+    <a routerLink="/order/1/memorial-page/gallery" routerLinkActive="active">Gallery</a>
+    <a routerLink="/order/1/memorial-page/links" routerLinkActive="active">Links</a>
   </div>
 </nav>
