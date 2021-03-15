@@ -2,30 +2,27 @@ import { Injectable } from '@angular/core'
 import { Order } from '../../models/Order'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'x-api-key': 'test',
-    'Content-Type': 'application/json',
-  }),
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  apiURL = 'http://localhost:3000/orders'
+  private apiURL = 'http://localhost:3000'
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  }
 
   constructor(private http: HttpClient) {}
 
-  get(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.apiURL, httpOptions)
-  }
+  get(orderId?: Number): Observable<Order[] | Order> {
+    let url = this.apiURL
 
-  update(order: Order): Observable<any> {
-    const url = this.apiURL + '/' + order.id
-    const r = this.http.put(url, order, httpOptions)
-    console.log('SUBMIT', url, r)
-    return r
+    if (orderId) {
+      url += '/' + orderId
+      return this.http.get<Order>(url, this.httpOptions)
+    }
+
+    return this.http.get<Order[]>(url, this.httpOptions)
   }
 }

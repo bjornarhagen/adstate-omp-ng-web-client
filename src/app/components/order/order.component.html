@@ -1,45 +1,4 @@
-<div>
-  <hr *ngIf="showEditForOrder == order.id" />
-  <!--    <p>id: {{ order.id }}</p>-->
-  <!--    <p>deceasedPersonId: {{ order.deceasedPersonId }}</p>-->
-  <!--    <p>funeralHomeId: {{ order.funeralHomeId }}</p>-->
-  <div style="display: flex; align-items: center">
-    <p>{{ order.id }}</p>
-    <button
-      *ngIf="showEditForOrder == null"
-      (click)="showEditForOrder = showEditForOrder = order.id"
-    >
-      Edit
-    </button>
-    <button
-      *ngIf="showEditForOrder == order.id"
-      (click)="showEditForOrder = null"
-    >
-      Cancel
-    </button>
-  </div>
-
-  <div *ngIf="showEditForOrder == order.id">
-    <form action="" (submit)="orderUpdate($event)">
-      <!--      <input type="text" [value]="order.id" name="id">-->
-      <div>
-        <label for="">deceasedPersonId</label>
-        <input
-          type="text"
-          [(ngModel)]="order.deceasedPersonId"
-          name="deceasedPersonId"
-        />
-      </div>
-      <div>
-        <label for="">funeralHomeId</label>
-        <input
-          type="text"
-          [(ngModel)]="order.funeralHomeId"
-          name="funeralHomeId"
-        />
-      </div>
-      <button type="submit">Update order</button>
-    </form>
-    <hr />
-  </div>
-</div>
+<article>
+  <h1>{{ order.id }} - {{ order.firstname }} {{ order.lastname }}</h1>
+  <a [routerLink]="'/order/' + order.id + '/memorial-page'">View memorial page</a>
+</article>

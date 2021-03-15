@@ -10,12 +10,11 @@ import { UUID } from '../../types/UUID'
 })
 export class OrdersComponent implements OnInit {
   orders: Order[]
-  showEditForOrder?: UUID = null
 
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.orderService.get().subscribe((orders) => {
+    this.orderService.get().subscribe((orders: Order[]) => {
       this.orders = orders
     })
   }
