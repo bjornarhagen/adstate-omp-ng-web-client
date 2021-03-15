@@ -33,13 +33,23 @@
 }
 
 .links-wrapper ul li {
-  color: white;
-  background-color: purple;
   width: auto;
   border-radius: 1em;
   margin-bottom: 1em;
   opacity: 1;
 }
+
+:host-context(.color-scheme-light) .links-wrapper ul li {
+  color: var(--color-primary-omp-100);
+  background-color: var(--color-primary-omp-500);
+}
+
+
+:host-context(.color-scheme-dark) .links-wrapper ul li {
+  color: var(--color-primary-omp-500);
+  background-color: var(--color-primary-omp-100);
+}
+
 
 .links-wrapper ul li:hover,
 .links-wrapper ul li:focus-within {
