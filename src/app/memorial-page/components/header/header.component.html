@@ -9,10 +9,10 @@
     <div class="contentText">
       <h1>{{ person.name }}</h1>
       <dl>
-        <dt>Født:</dt>
-        <dd>{{ person.birth }}</dd>
-        <dt>Død:</dt>
-        <dd>{{ person.passing }}</dd>
+        <dt *ngIf="!!person.birth">Født:</dt>
+        <dd *ngIf="!!person.birth">{{ person.birth }}</dd>
+        <dt *ngIf="!!person.passing">Død:</dt>
+        <dd *ngIf="!!person.passing">{{ person.passing }}</dd>
       </dl>
     </div>
   </div>

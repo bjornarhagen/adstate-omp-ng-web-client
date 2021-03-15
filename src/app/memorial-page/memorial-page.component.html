@@ -1,13 +1,13 @@
 <app-omp-navigation section="primary"></app-omp-navigation>
 <app-omp-header
   [person]="{
-    name: 'Ola Nordmann',
-    birth: '15. juni 1940',
-    passing: '9. mars 2021',
+    name: order.firstname + ' ' + order.lastname,
+    birth: order.birth_date,
+    passing: order.death_date,
     image: {
       src:
         'https://horten.vareminnesider.no/stream_file.php?filename=3831887.jpg&type=profile_photo_preview&sign=c9e74cb3560729d6a23f1c5faae738de',
-      alt: 'Ola Nordmann'
+      alt: ''
     }
   }"
   [background]="{
